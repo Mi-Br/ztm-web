@@ -1,0 +1,45 @@
+* {
+    /* reset */
+box-sizing: border-box;
+margin: 0;
+}
+
+
+h1 {
+    font-family: fantasy, sans-serif;
+    font-weight: 100;
+    font-size: 4em;
+    margin-top: 1%;
+    margin-bottom: 3%;
+    padding-inline: 1em;
+    display: inline-block;
+    text-align: center;
+    border-bottom: 1px solid pink
+}
+body {
+    /* border:  1px solid red; */
+    /* width: 100vw; */
+    /* height: 100vh; */
+    background: rgb(21, 10, 10);
+    color: white;
+}
+
+.photo-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+
+.photo-wrapper img {
+    width: 350px;
+    /* height: auto; */
+    height: 300px;
+    margin: 1%;
+    transition: 1s all;
+}
+
+.photo-wrapper img:hover{
+    scale: 1.1;
+    transition: 1s all;
+}
