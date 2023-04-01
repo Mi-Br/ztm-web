@@ -1,36 +1,46 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Grid from './Components/Grid'
 import Search from './Components/Search'
-import { robots } from './assets/Robots'
+import { Robot } from './assets/Robots'
 
-
+const url = 'https://jsonplaceholder.typicode.com/users'
 
 function App() {
+  const [robots, setRobots] = useState<Robot[]>([])
+  const [filteredRobots, setFilteredRobots] = useState<Robot[]>([])
 
-  const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
-    console.log('changing', e.target.value)
-    filterRobots(e.target.value)
-    if(e.target.value === "") {setRobots(robots)}
-  }
-  const [filteredRobots, setRobots] = useState(robots)
-  
-  const filterRobots = (txt:string)=>{
-    const nextRobots = filteredRobots.slice().filter((r)=>{
-      if(r.name.includes(txt) || r.email.includes(txt) || r.username.includes(txt)) {
-        return r
-      }
-    })
-    setRobots(nextRobots)
-    console.log(nextRobots)
-  }
+  useEffect(() => {
+    fetch(url)
+      .then(resp => resp.json())
+      .then(data => {
+        setRobots(data)
+        setFilteredRobots(data)
+      })
+      .catch(err => {
+        console.error('Failed to fetch robots:', err);
+      });
+  }, []);
+
+  const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const txt = e.target.value.toLowerCase();
+    if (txt === "") {
+      setFilteredRobots(robots);
+    } else {
+      const filtered = robots.filter(r =>
+        r.name.toLowerCase().includes(txt) || r.email.toLowerCase().includes(txt)
+      );
+      setFilteredRobots(filtered);
+    }
+  };
+
   return (
-
-   <>
-   <h1>Find your robot </h1>
-    <Search onSearchChange={onSearchChange}></Search>
-    <Grid robots={filteredRobots}/>
-   </>
-  )
+    <>
+      <h1>Find your robot </h1>
+      <Search onSearchChange={onSearchChange} />
+      <Grid robots={filteredRobots} />
+    </>
+  );
 }
-export default App
+
+export default App;
