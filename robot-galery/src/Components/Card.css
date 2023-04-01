@@ -1,6 +1,6 @@
 .card {
     width: 300px;
-    aspect-ratio: 1/1.2;
+    /* aspect-ratio: 1/1.2; */
     outline: 1px solid green;
     background-color: rgb(30, 199, 129);
     border-radius: 9px;
@@ -8,6 +8,7 @@
     transition: all .3s ease-out;
     padding: 10px;
     padding-bottom: 30px;
+    margin: .5rem;
 }
 
 .card h2 {

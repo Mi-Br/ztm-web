@@ -1,18 +1,20 @@
 import Card from "./Card";
+import './Grid.css'
 import { Robot } from "../assets/Robots";
 
-const robot:Robot = {
-    id: 123,
-    username: 'Michail',
-    name: 'Michail',
-    email: 'myemail@lt.com'
+interface GridProps {
+    robots: Robot[]
 }
 
-const Grid = ()=>{
+const Grid = ({robots}:GridProps)=>{
     return (
         <>
-        This is Grid:
-            <Card {...robot} />
+        <div className="grid">
+            {robots.map((r)=>{
+            return (<Card key={r.id} {...r}></Card>)
+            })}
+        </div>
+        
         </>
     )
 }

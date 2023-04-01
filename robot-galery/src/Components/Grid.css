@@ -1,0 +1,12 @@
+/* .grid {
+    display:  grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    justify-items: center;
+    align-items: center;   
+    gap: 1rem;
+} */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
