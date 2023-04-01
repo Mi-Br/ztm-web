@@ -1,0 +1,26 @@
+.card {
+    width: 300px;
+    aspect-ratio: 1/1.2;
+    outline: 1px solid green;
+    background-color: rgb(30, 199, 129);
+    border-radius: 9px;
+    box-shadow: 0 10px 15px rgba(77, 75, 75, 0.538);
+    transition: all .3s ease-out;
+    padding: 10px;
+    padding-bottom: 30px;
+}
+
+.card h2 {
+    margin-top: 22px;
+    margin-bottom: 10px;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.card p{
+    text-align: center;
+}
+
+.card:hover{
+    transform: scale(1.05);
+}
