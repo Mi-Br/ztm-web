@@ -13,7 +13,7 @@ const Card = ({name, email, username}: Robot)=>{
             <img src={imgUrl} alt="robot image"/>
             <h2>{name}</h2>
             <p>{email}</p>
-            <audio src={isHovering ? sound: ''} autoPlay></audio>
+            <audio src={isHovering ? sound: ''} autoPlay typeof='audio/mp4'></audio>
         </div>
         </>
     )
